@@ -3,9 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:test_zadanie/core/typography.dart';
 import 'package:test_zadanie/gen/assets.gen.dart';
-import 'package:test_zadanie/presentation/first_screen/first_screen.dart';
-import 'package:test_zadanie/presentation/widgets/app_large_button.dart';
-import 'package:test_zadanie/presentation/widgets/spacers.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/pages/first_screen/first_screen.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/app_large_button.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/spacers.dart';
 
 class FinalScreen extends StatelessWidget {
   const FinalScreen({super.key});

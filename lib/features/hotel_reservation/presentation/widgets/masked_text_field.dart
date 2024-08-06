@@ -9,32 +9,32 @@ class MaskedTextField extends StatefulWidget {
 }
 
 class _MaskedTextFieldState extends State<MaskedTextField> {
-  TextEditingController controller = TextEditingController();
-  String mask = '+7 (***) ***-**-**';
+  // TextEditingController controller = TextEditingController();
+  // String mask = '+7 (***) ***-**-**';
 
   @override
   void initState() {
     super.initState();
-    controller.addListener(() {
-      setState(() {
-        mask = updateMask(controller.text);
-      });
-    });
+    // controller.addListener(() {
+    //   setState(() {
+    //     // mask = updateMask(controller.text);
+    //   });
+    // });
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    // controller.dispose();
     super.dispose();
   }
 
-  String updateMask(String text) {
-    String updatedMask = '+7 (***) ***-**-**';
-    for (int i = 0; i < text.length; i++) {
-      updatedMask = updatedMask.replaceFirst('*', text[i]);
-    }
-    return updatedMask;
-  }
+  // String updateMask(String text) {
+  //   // String updatedMask = '+7 (***) ***-**-**';
+  //   for (int i = 0; i < text.length; i++) {
+  //     updatedMask = updatedMask.replaceFirst('*', text[i]);
+  //   }
+  //   return updatedMask;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -42,15 +42,15 @@ class _MaskedTextFieldState extends State<MaskedTextField> {
       borderRadius: BorderRadius.circular(10),
       child: TextFormField(
         cursorColor: Colors.transparent,
-        controller: controller,
+        // controller: controller,
         keyboardType: TextInputType.number,
-        style: AppTypography.style1640019.copyWith(color: Colors.transparent),
+        style: AppTypography.style1640019,
         decoration: InputDecoration(
           fillColor: const Color(
             0xFFF6F6F9,
           ),
           filled: true,
-          prefixText: mask,
+          // prefixText: mask,
           prefixStyle: AppTypography.style1640019,
           border: InputBorder.none,
           label: const Text('Номер телефона'),

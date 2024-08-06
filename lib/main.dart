@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:test_zadanie/presentation/first_screen/first_screen.dart';
-import 'package:test_zadanie/presentation/providers/place_provider.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/pages/first_screen/first_screen.dart';
+import 'package:test_zadanie/old/providers/place_provider.dart';
 
 void main() {
   runApp(const MyApp());

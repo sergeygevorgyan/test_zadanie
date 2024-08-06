@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:test_zadanie/main.dart';
-import 'package:test_zadanie/presentation/second_screen/widgets/menu_item.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/pages/second_screen/widgets/menu_item.dart';
 
 class SecondScreen extends ConsumerWidget {
   const SecondScreen({

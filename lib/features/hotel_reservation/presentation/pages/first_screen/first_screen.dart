@@ -3,13 +3,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:test_zadanie/core/typography.dart';
 import 'package:test_zadanie/gen/assets.gen.dart';
 import 'package:test_zadanie/main.dart';
-import 'package:test_zadanie/presentation/second_screen/second_screen.dart';
-import 'package:test_zadanie/presentation/widgets/app_large_button.dart';
-import 'package:test_zadanie/presentation/widgets/details_tile.dart';
-import 'package:test_zadanie/presentation/widgets/image_slider.dart';
-import 'package:test_zadanie/presentation/widgets/spacers.dart';
-import 'package:test_zadanie/presentation/widgets/rating_tile.dart';
-import 'package:test_zadanie/presentation/widgets/tag_tile.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/pages/second_screen/second_screen.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/app_large_button.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/details_tile.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/image_slider.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/spacers.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/rating_tile.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/tag_tile.dart';
 
 class FirstScreen extends ConsumerWidget {
   const FirstScreen({super.key});
@@ -89,8 +89,8 @@ class FirstScreen extends ConsumerWidget {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text:
-                                    'от ${dummyPlace.minimal_price.toString().substring(0, 3)} ${dummyPlace.minimal_price.toString().substring(3, 6)}  ₽ ',
+                                text:'',
+                                    // 'от ${dummyPlace.minimal_price.toString().substring(0, 3)} ${dummyPlace.minimal_price.toString().substring(3, 6)}  ₽ ',
                                 style: AppTypography.style3060036
                                     .copyWith(color: Colors.black),
                               ),

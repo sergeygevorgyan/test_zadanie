@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_zadanie/core/typography.dart';
-import 'package:test_zadanie/presentation/widgets/app_textfield.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/app_textfield.dart';
 
 class Item {
   Item({
