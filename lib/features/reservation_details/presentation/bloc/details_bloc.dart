@@ -15,21 +15,22 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
       await Future.delayed(const Duration(milliseconds: 500)).then(
         (value) {
           bookingData = const BookingData(
-              id: 5,
-              arrival_country: 'arrival_country',
-              departure: 'departure',
-              fuel_charge: 5,
-              horating: 5,
-              hotel_adress: 'hotel_adress',
-              rating_name: 'rating_name',
-              hotel_name: 'hotel_name',
-              room: 'room',
-              number_of_nights: 5,
-              nutrition: '',
-              service_charge: 8,
-              tour_date_start: '',
-              tour_date_stop: 'tour_date_stop',
-              tour_price: 2500000);
+            id: 5,
+            arrival_country: 'Москва',
+            departure: '',
+            fuel_charge: 500,
+            horating: 50,
+            hotel_adress: 'ул. Адмирала Исакова 1',
+            rating_name: 'Отлично',
+            hotel_name: 'Гранд Элеон',
+            room: '1',
+            number_of_nights: 5,
+            nutrition: '',
+            service_charge: 8,
+            tour_date_start: '08.07.2024',
+            tour_date_stop: '22.07.2024',
+            tour_price: 2500000,
+          );
 
           emit(
             DetailsLoadedState(
