@@ -10,30 +10,30 @@ class HotelDataBloc extends Bloc<HotelDataEvent, HotelDataState> {
   HotelDataBloc({required this.itemRepository})
       : super(HotelDataInitialState()) {
     on<FetchHotelData>((event, emit) async {
+      late Place fetchedPlace;
       emit(HotelDataLoadingState());
+      //Imitating server response delay
       await Future.delayed(const Duration(milliseconds: 500)).then((value) {
-        const Place fetchedPlace = Place(
+        fetchedPlace = const Place(
           id: 1,
-          adress: 'adress',
-          name: 'name',
-          minimal_price: 0,
-          price_for_it: '0',
+          adress: 'ул. Адмирала Исакова 1',
+          name: 'Гранд Элеон',
+          minimal_price: 100000,
+          price_for_it: '',
           rating: 5,
-          rating_name: 'rating_name',
+          rating_name: 'Отлично',
           image_urls: [
-            'https://res.cloudinary.com/cloudinary-marketing/images/c_fill,w_890/f_auto,q_auto/v1647045694/28_SEO_friendly_URLs/28_SEO_friendly_URLs-jpg?_i=AA'
-                'https://res.cloudinary.com/cloudinary-marketing/images/c_fill,w_890/f_auto,q_auto/v1647045694/28_SEO_friendly_URLs/28_SEO_friendly_URLs-jpg?_i=AA'
+            'https://www.peninsula.com/en/-/media/01-hong-kong-property/exterior-2_5000x2811.jpg?mw=905&hash=934337A3F240DDF77532E22A9E1EA451'
           ],
           about_the_hotel: {'peculiarities': [], 'description': ''},
         );
-        return fetchedPlace;
       });
-      // try {
-      //   final items = await itemRepository.fetchItems();
-      //   emit(ItemLoaded(items: items));
-      // } catch (e) {
-      //   emit(ItemError(message: e.toString()));
-      // }
+
+      emit(
+        HotelDataLoadedState(
+          placedata: fetchedPlace,
+        ),
+      );
     });
   }
 }

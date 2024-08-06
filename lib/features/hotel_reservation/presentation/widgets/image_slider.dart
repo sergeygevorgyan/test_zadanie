@@ -29,7 +29,6 @@ class ImageSlider extends HookWidget {
               height: 300,
               onPageChanged: (index, reason) {
                 currentIndex.value = index;
-                print(currentIndex.value);
               },
               animateToClosest: true,
               viewportFraction: 1,

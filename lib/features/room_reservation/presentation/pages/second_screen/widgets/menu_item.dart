@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_zadanie/core/typography.dart';
 import 'package:test_zadanie/features/hotel_reservation/data/models/room.dart';
-import 'package:test_zadanie/features/hotel_reservation/presentation/pages/second_screen/widgets/detail_tile.dart';
-import 'package:test_zadanie/features/hotel_reservation/presentation/pages/third_screen.dart/third_screen.dart';
+import 'package:test_zadanie/features/room_reservation/presentation/pages/second_screen/widgets/detail_tile.dart';
+import 'package:test_zadanie/features/reservation_details/presentation/pages/third_screen.dart/third_screen.dart';
 import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/app_large_button.dart';
 import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/image_slider.dart';
 import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/spacers.dart';
@@ -50,8 +50,8 @@ class MenuItem extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: 'aaa',
-                    // '${room.price.toString().substring(0, 3)} ${room.price.toString().substring(3, 6)} ₽ ',
+                    text:
+                        '${room.price.toString().substring(0, 3)} ${room.price.toString().substring(3, 6)} ₽ ',
                     style: AppTypography.style3060036
                         .copyWith(color: Colors.black),
                   ),

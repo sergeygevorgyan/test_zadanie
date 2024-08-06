@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:test_zadanie/core/typography.dart';
+import 'package:test_zadanie/features/hotel_reservation/data/models/place.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/bloc/hotel_data_bloc.dart';
+import 'package:test_zadanie/features/hotel_reservation/presentation/bloc/hotel_data_state.dart';
 import 'package:test_zadanie/gen/assets.gen.dart';
-import 'package:test_zadanie/main.dart';
-import 'package:test_zadanie/features/hotel_reservation/presentation/pages/second_screen/second_screen.dart';
+import 'package:test_zadanie/features/room_reservation/presentation/pages/second_screen/second_screen.dart';
 import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/app_large_button.dart';
 import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/details_tile.dart';
 import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/image_slider.dart';
@@ -11,25 +14,25 @@ import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/spa
 import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/rating_tile.dart';
 import 'package:test_zadanie/features/hotel_reservation/presentation/widgets/tag_tile.dart';
 
+
 class FirstScreen extends ConsumerWidget {
   const FirstScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final placeprovider = ref.watch(placeProvider);
 
-    return FutureBuilder(
-      future: placeprovider.fetchPlaceData(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
+    return BlocBuilder<HotelDataBloc, HotelDataState>(
+      builder: (context, state) {
+        if (state is HotelDataLoadingState) {
           return const Scaffold(
-              body: Center(child: CircularProgressIndicator()));
-        } else if (snapshot.hasError) {
-          return Text('Error: ${snapshot.error}');
-        } else {
-          final dummyPlace = snapshot.data;
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        } else if (state is HotelDataLoadedState) {
+          final Place dummyPlace = state.placedata;
           final List peculiarities =
-              dummyPlace!.about_the_hotel['peculiarities'];
+              dummyPlace.about_the_hotel['peculiarities'];
           final tags = List.generate(
             peculiarities.length,
             (index) => TagTile(
@@ -89,8 +92,7 @@ class FirstScreen extends ConsumerWidget {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text:'',
-                                    // 'от ${dummyPlace.minimal_price.toString().substring(0, 3)} ${dummyPlace.minimal_price.toString().substring(3, 6)}  ₽ ',
+                                text:  'от ${dummyPlace.minimal_price.toString().substring(0, 3)} ${dummyPlace.minimal_price.toString().substring(3, 6)}  ₽ ',
                                 style: AppTypography.style3060036
                                     .copyWith(color: Colors.black),
                               ),
@@ -175,6 +177,7 @@ class FirstScreen extends ConsumerWidget {
             ),
           );
         }
+        return const SizedBox();
       },
     );
   }
